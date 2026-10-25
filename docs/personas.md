@@ -5,6 +5,22 @@ additional personas can be identified within the solution space, some of which
 will be added to this document over time as the project is ready to address
 their unique use cases.
 
+Personas describe users' goals and responsibilities. Authorization is defined
+separately through roles, capabilities, and scope. A person performing some
+responsibilities associated with a persona does not necessarily receive all
+permissions associated with it. The responsibilities below are subject to the
+user's assigned permissions and scope; a persona name alone grants no access.
+
+Feature requirements should specify the capabilities and scope needed by each
+affected permission variant. For example, an audit reader may need access to
+evidence within one tenant or an explicitly authorized provider scope, without
+permission to manage resources, users, or audit configuration. Tenant-scoped
+roles must preserve tenant isolation. Each feature PRD defines which access
+requirements its release supports.
+
+An Auditor or read-only role does not by itself require another canonical
+persona. Add a persona when OSAC needs to address distinct goals or workflows.
+
 ## Cloud Provider Admin
 
 * works for the Cloud Provider
@@ -12,7 +28,7 @@ their unique use cases.
 * sets quotas for tenant organizations
 * uses the OSAC interfaces to manage tenant organizations
 * uses the OSAC interfaces to manage resource allocation
-* is a super-user of the system and can see all tenant organizations
+* can access tenant organizations within an explicitly authorized provider scope
 * manages any global catalogs of templates (VM templates, cluster templates, etc)
 * ensures that all global templates work with the local infrastructure
 * works with internal infrastructure owners (Cloud Infrastructure Admins) as necessary
